@@ -1,5 +1,5 @@
 const app = require("../app");
-const { port } = require("../config/app");
+const { port } = require("../config/server");
 
 module.exports = app;
 
