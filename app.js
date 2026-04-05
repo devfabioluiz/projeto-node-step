@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const authenticate = require("./middlewares/authMiddleware");
 const apiKeyMiddleware = require("./middlewares/apiKeyMiddleware");
@@ -8,6 +9,8 @@ console.log("API Key Middleware loaded:", typeof apiKeyMiddleware);
 const produtosRoutes = require("./routes/produtos");
 const authRoutes = require("./routes/auth");
 const authController = require("./controllers/authController");
+
+console.log('App.js loaded, authController:', typeof authController, 'login:', typeof authController.login);
 
 const app = express();
 
@@ -36,6 +39,7 @@ app.get("/", (req, res) => {
     endpoints: {
       register: "POST /api/auth/register",
       login: "POST /api/auth/login",
+      loginAlt: "POST /login",
       me: "GET /api/auth/me",
     },
   });
