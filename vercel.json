@@ -9,7 +9,10 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "api/index.js"
+            "dest": "api/index.js",
+            "headers": {
+                "x-vercel-protection-bypass": "true"
+            }
         }
     ]
 }
