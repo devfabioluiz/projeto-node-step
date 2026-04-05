@@ -1,7 +1,7 @@
 const app = require("../app");
 const { port } = require("../config/server");
 
-console.log('API index.js loaded, app:', typeof app);
+console.log("API index.js loaded, app:", typeof app);
 
 module.exports = app;
 
