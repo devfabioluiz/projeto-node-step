@@ -7,7 +7,7 @@ const produtoSchema = new mongoose.Schema({
   },
 
   preco: {
-    type: String,
+    type: Number,
     required: true,
   },
 
