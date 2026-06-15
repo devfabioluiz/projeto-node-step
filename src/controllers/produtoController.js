@@ -7,7 +7,7 @@ const listarProdutos = async (req, res) => {
   res.json(produtos);
 };
 
-const criarProdutos = async (req, res) => {
+const criarProduto = async (req, res) => {
   const produto = await Produto.create(req.body);
 
   res.status(201).json(produto);
@@ -15,5 +15,5 @@ const criarProdutos = async (req, res) => {
 
 module.exports = {
   listarProdutos,
-  criarProdutos,
+  criarProduto,
 };

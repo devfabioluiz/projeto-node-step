@@ -4,11 +4,13 @@ const router = express.Router();
 
 const {
   listarProdutos,
-  criarProdutos,
+  criarProduto,
 } = require("../controllers/produtoController");
 
-router.get("/produtos", listarProdutos);
+const autenticar = require("../middlewares/autenticar");
 
-router.post("/produtos", criarProdutos);
+router.post("/produtos", autenticar, criarProduto);
+
+router.get("/produtos", listarProdutos);
 
 module.exports = router;
