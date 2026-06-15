@@ -15,6 +15,11 @@ const usuarioSchema = new mongoose.Schema({
   idade: {
     type: Number,
   },
+
+  senha: {
+    type: String,
+    required: true,
+  },
 });
 
 const Usuario = mongoose.model("Usuario", usuarioSchema);
