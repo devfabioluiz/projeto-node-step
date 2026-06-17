@@ -1,0 +1,9 @@
+[2026-06-17T22:11:53.462Z] GET /
+[2026-06-17T22:12:05.391Z] GET /usuarios
+[2026-06-17T22:12:05.526Z] GET /.well-known/appspecific/com.chrome.devtools.json
+[2026-06-17T22:12:05.589Z] GET /favicon.ico
+[2026-06-17T22:16:43.678Z] GET /produtos
+[2026-06-17T22:16:52.569Z] GET /produtos
+[2026-06-17T22:17:04.015Z] GET /produtos
+[2026-06-17T22:18:02.440Z] POST /registrar
+[2026-06-17T22:18:02.764Z] ERRO: Falha no registro: Nome, email e senha são obrigatórios

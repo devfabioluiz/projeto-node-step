@@ -5,7 +5,11 @@ const produtoRoutes = require("./routes/produtoRoutes");
 const arquivoRoutes = require("./routes/arquivoRoutes");
 const authRoutes = require("./routes/authRoutes");
 
+const loggerMiddleware = require("./middlewares/loggerMiddleware");
+
 const app = express();
+
+app.use(loggerMiddleware);
 
 app.use(express.json());
 

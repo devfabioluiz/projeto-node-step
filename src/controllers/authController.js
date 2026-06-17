@@ -2,73 +2,106 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const Usuario = require("../models/Usuario");
+const logger = require("../utils/logger");
+const { ErroValidacao, ErroAutenticacao } = require("../utils/erros");
 
 const JWT_SECRET = process.env.JWT_SECRET || "segredo";
 
 const registrar = async (req, res) => {
-  const { nome, email, idade, senha } = req.body;
+  try {
+    const { nome, email, idade, senha } = req.body;
 
-  const existe = await Usuario.findOne({ email });
+    if (!nome || !email || !senha) {
+      throw new ErroValidacao("Nome, email e senha são obrigatórios");
+    }
 
-  if (existe) {
-    return res.status(400).json({
-      erro: "Email já cadastrado",
+    const existe = await Usuario.findOne({ email });
+
+    if (existe) {
+      throw new ErroValidacao("Email já cadastrado");
+    }
+
+    const senhaHash = await bcrypt.hash(senha, 10);
+
+    const usuario = await Usuario.create({
+      nome,
+      email,
+      idade,
+      senha: senhaHash,
     });
+
+    const token = jwt.sign(
+      { id: usuario._id, email: usuario.email },
+      JWT_SECRET,
+      { expiresIn: "1d" }
+    );
+
+    logger.info(`Usuário registrado: ${email}`);
+
+    res.status(201).json({
+      mensagem: "Usuário registrado",
+      token,
+    });
+  } catch (erro) {
+    logger.erro(`Falha no registro: ${erro.message}`);
+
+    if (erro instanceof ErroValidacao) {
+      return res.status(400).json({ erro: erro.message });
+    }
+
+    res.status(500).json({ erro: "Erro interno do servidor" });
   }
-
-  const senhaHash = await bcrypt.hash(senha, 10);
-
-  const usuario = await Usuario.create({
-    nome,
-    email,
-    idade,
-    senha: senhaHash,
-  });
-
-  const token = jwt.sign(
-    { id: usuario._id, email: usuario.email },
-    JWT_SECRET,
-    { expiresIn: "1d" },
-  );
-
-  res.status(201).json({
-    mensagem: "Usuário registrado",
-    token,
-  });
 };
 
 const login = async (req, res) => {
-  const { email, senha } = req.body;
+  try {
+    const { email, senha } = req.body;
 
-  const usuario = await Usuario.findOne({ email });
+    if (!email || !senha) {
+      throw new ErroValidacao("Email e senha são obrigatórios");
+    }
 
-  if (!usuario) {
-    return res.status(401).json({
-      erro: "Email ou senha inválidos",
+    const usuario = await Usuario.findOne({ email });
+
+    if (!usuario) {
+      throw new ErroAutenticacao("Email ou senha inválidos");
+    }
+
+    const senhaValida = await bcrypt.compare(senha, usuario.senha);
+
+    if (!senhaValida) {
+      throw new ErroAutenticacao("Email ou senha inválidos");
+    }
+
+    const token = jwt.sign(
+      { id: usuario._id, email: usuario.email },
+      JWT_SECRET,
+      { expiresIn: "1d" }
+    );
+
+    logger.info(`Login realizado: ${email}`);
+
+    res.json({
+      mensagem: "Login realizado",
+      token,
     });
+  } catch (erro) {
+    logger.erro(`Falha no login: ${erro.message}`);
+
+    if (erro instanceof ErroValidacao) {
+      return res.status(400).json({ erro: erro.message });
+    }
+
+    if (erro instanceof ErroAutenticacao) {
+      return res.status(401).json({ erro: erro.message });
+    }
+
+    res.status(500).json({ erro: "Erro interno do servidor" });
   }
-
-  const senhaValida = await bcrypt.compare(senha, usuario.senha);
-
-  if (!senhaValida) {
-    return res.status(401).json({
-      erro: "Email ou senha inválidos",
-    });
-  }
-
-  const token = jwt.sign(
-    { id: usuario._id, email: usuario.email },
-    JWT_SECRET,
-    { expiresIn: "1d" },
-  );
-
-  res.json({
-    mensagem: "Login realizado",
-    token,
-  });
 };
 
 module.exports = {
   registrar,
   login,
 };
+            
