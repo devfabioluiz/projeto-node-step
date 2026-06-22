@@ -7,3 +7,17 @@
 [2026-06-17T22:17:04.015Z] GET /produtos
 [2026-06-17T22:18:02.440Z] POST /registrar
 [2026-06-17T22:18:02.764Z] ERRO: Falha no registro: Nome, email e senha são obrigatórios
+[2026-06-22T22:21:42.819Z] GET /
+[2026-06-22T22:21:47.689Z] GET /usuarios
+[2026-06-22T22:21:47.841Z] GET /.well-known/appspecific/com.chrome.devtools.json
+[2026-06-22T22:21:48.111Z] GET /favicon.ico
+[2026-06-22T22:23:12.976Z] GET /download/csv
+[2026-06-22T22:23:12.987Z] INFO: Iniciando download com stream
+[2026-06-22T22:23:13.026Z] INFO: Download concluído
+[2026-06-22T22:24:25.526Z] GET /download/csv-comprimido
+[2026-06-22T22:24:25.528Z] INFO: Iniciando download comprimido com stream
+[2026-06-22T23:01:11.999Z] GET /download/csv
+[2026-06-22T23:01:12.008Z] INFO: Iniciando download com stream
+[2026-06-22T23:01:12.026Z] INFO: Download concluído
+[2026-06-22T23:01:43.418Z] GET /download/csv-comprimido
+[2026-06-22T23:01:43.419Z] INFO: Iniciando download comprimido com stream
