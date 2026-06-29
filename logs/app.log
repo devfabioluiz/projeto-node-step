@@ -59,3 +59,5 @@
 [2026-06-29T22:47:16.641Z] POST /carrinho
 [2026-06-29T22:47:20.349Z] GET /carrinho
 [2026-06-29T22:47:29.172Z] DELETE /carrinho
+[2026-06-29T23:15:39.960Z] GET /clima/sao-paulo
+[2026-06-29T23:16:29.561Z] GET /clima/sao-paulo

@@ -7,12 +7,14 @@ const buscarClima = async (req, res) => {
 
   const atual = dados.current_condition[0];
 
+  console.log(atual);
+
   res.json({
     cidade: cidade,
     temperatura: atual.temp_C + "°C",
     descricao: atual.weatherDesc[0].value,
     umidade: atual.humidity + "%",
-    vento: atual.windSpeed + " km/h",
+    vento: atual.windspeedKmph + " km/h",
   });
 };
 
