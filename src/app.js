@@ -9,6 +9,8 @@ const authRoutes = require("./routes/authRoutes");
 const streamRoutes = require("./routes/streamRoutes");
 const cepRoutes = require("./routes/cepRoutes");
 const sessaoRoutes = require("./routes/sessaoRoutes");
+const climaRoutes = require("./routes/climaRoutes");
+const carrinhoRoutes = require("./routes/carrinhoRoutes");
 
 const loggerMiddleware = require("./middlewares/loggerMiddleware");
 
@@ -40,5 +42,6 @@ app.use(arquivoRoutes);
 app.use(streamRoutes);
 app.use(cepRoutes);
 app.use(sessaoRoutes);
-
+app.use(climaRoutes);
+app.use(carrinhoRoutes);
 module.exports = app;
