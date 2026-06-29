@@ -21,3 +21,22 @@
 [2026-06-22T23:01:12.026Z] INFO: Download concluído
 [2026-06-22T23:01:43.418Z] GET /download/csv-comprimido
 [2026-06-22T23:01:43.419Z] INFO: Iniciando download comprimido com stream
+[2026-06-29T22:20:13.501Z] GET /cep/01001000
+[2026-06-29T22:20:14.102Z] INFO: CEP consultado: 01001000
+[2026-06-29T22:20:14.397Z] GET /favicon.ico
+[2026-06-29T22:20:46.117Z] POST /tema
+[2026-06-29T22:20:46.327Z] INFO: Tema alterado para: escuro
+[2026-06-29T22:21:48.338Z] GET /sessao/iniciar%20-b%20cookies.txt%20-c%20cookies.txt
+[2026-06-29T22:22:02.227Z] GET /sessao/iniciar
+[2026-06-29T22:22:35.449Z] GET /sessao/iniciar
+[2026-06-29T22:24:46.328Z] GET /sessao/status
+[2026-06-29T22:25:00.653Z] GET /sessao/status
+[2026-06-29T22:25:09.520Z] GET /sessao/status
+[2026-06-29T22:25:22.692Z] GET /cep/01001000
+[2026-06-29T22:25:23.109Z] INFO: CEP consultado: 01001000
+[2026-06-29T22:25:29.496Z] GET /cep/20071002
+[2026-06-29T22:25:29.962Z] INFO: CEP consultado: 20071002
+[2026-06-29T22:25:47.604Z] GET /sessao/iniciar%20-b%20cookies.txt%20-c%20cookies.txt
+[2026-06-29T22:25:58.960Z] GET /sessao/iniciar
+[2026-06-29T22:26:05.539Z] GET /sessao/iniciar
+[2026-06-29T22:26:11.984Z] GET /sessao/status
