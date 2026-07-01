@@ -222,3 +222,9 @@
 [2026-07-01T23:16:40.567Z] GET /produtos
 [2026-07-01T23:16:40.569Z] GET /produtos
 [2026-07-01T23:16:40.574Z] GET /produtos
+[2026-07-01T23:18:13.090Z] POST /calculo
+[2026-07-01T23:18:13.119Z] INFO: Iniciando cálculo primos(100000) em processo filho
+[2026-07-01T23:18:13.294Z] INFO: Cálculo primos concluído
+[2026-07-01T23:24:07.329Z] GET /
+[2026-07-01T23:24:07.430Z] GET /estilo.css
+[2026-07-01T23:24:09.764Z] GET /pg/produtos
