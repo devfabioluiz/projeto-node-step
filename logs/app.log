@@ -61,3 +61,61 @@
 [2026-06-29T22:47:29.172Z] DELETE /carrinho
 [2026-06-29T23:15:39.960Z] GET /clima/sao-paulo
 [2026-06-29T23:16:29.561Z] GET /clima/sao-paulo
+[2026-06-30T00:25:50.634Z] GET /
+[2026-06-30T00:25:50.804Z] GET /estilo.css
+[2026-06-30T00:25:51.083Z] GET /favicon.ico
+[2026-06-30T00:25:55.782Z] GET /pg/produtos
+[2026-06-30T00:25:55.944Z] ERRO: Erro ao listar produtos PG: banco de dados "psotgres" n�o existe
+[2026-06-30T00:26:39.387Z] POST /pg/produtos
+[2026-06-30T00:26:56.241Z] POST /pg/produtos
+[2026-06-30T00:28:00.076Z] GET /login
+[2026-06-30T00:28:04.399Z] POST /login
+[2026-06-30T00:28:04.402Z] ERRO: Falha no login: Email e senha são obrigatórios
+[2026-06-30T00:28:10.102Z] POST /login
+[2026-06-30T00:28:10.150Z] ERRO: Falha no login: Email ou senha inválidos
+[2026-06-30T00:28:15.252Z] POST /login
+[2026-06-30T00:28:15.254Z] ERRO: Falha no login: Email e senha são obrigatórios
+[2026-06-30T00:28:24.574Z] POST /register
+[2026-06-30T00:28:30.973Z] POST /registrar
+[2026-06-30T00:28:30.975Z] ERRO: Falha no registro: Nome, email e senha são obrigatórios
+[2026-06-30T00:29:13.630Z] POST /registrar
+[2026-06-30T00:29:13.633Z] ERRO: Falha no registro: Nome, email e senha são obrigatórios
+[2026-06-30T00:30:38.819Z] POST /registrar
+[2026-06-30T00:30:39.083Z] INFO: Usuário registrado: fabio@email.com
+[2026-06-30T00:31:02.686Z] POST /pg/produtos
+[2026-06-30T00:31:02.821Z] ERRO: Erro ao criar produto PG: banco de dados "psotgres" n�o existe
+[2026-06-30T00:31:09.190Z] POST /pg/produtos
+[2026-06-30T00:31:09.308Z] ERRO: Erro ao criar produto PG: banco de dados "psotgres" n�o existe
+[2026-06-30T00:31:32.919Z] POST /pg/produtos
+[2026-06-30T00:31:33.098Z] ERRO: Erro ao criar produto PG: relação "produtos_pg" não existe
+[2026-06-30T00:33:33.141Z] POST /pg/produtos
+[2026-06-30T00:33:33.271Z] ERRO: Erro ao criar produto PG: relação "produtos_pg" não existe
+[2026-06-30T00:35:03.469Z] POST /pg/produtos
+[2026-06-30T00:35:03.738Z] INFO: Produto PG criado: Teclado
+[2026-06-30T00:36:49.549Z] GET /pg/produtos
+[2026-06-30T00:38:59.246Z] POST /pg/produtos
+[2026-06-30T00:38:59.399Z] INFO: Produto PG criado: TV
+[2026-06-30T00:39:01.643Z] GET /pg/produtos
+[2026-06-30T00:59:44.631Z] POST /registrar
+[2026-06-30T00:59:44.748Z] ERRO: Falha no registro: Email já cadastrado
+[2026-06-30T01:00:29.786Z] POST /registrar
+[2026-06-30T01:00:29.820Z] ERRO: Falha no registro: Email já cadastrado
+[2026-06-30T01:00:47.255Z] POST /registrar
+[2026-06-30T01:00:47.283Z] ERRO: Falha no registro: Email já cadastrado
+[2026-06-30T01:21:53.587Z] GET /pg/produtos
+[2026-06-30T01:22:13.318Z] GET /pg/produtos1
+[2026-06-30T01:22:20.209Z] GET /pg/produtos
+[2026-06-30T01:24:35.992Z] DELETE /pg/produtos/1
+[2026-07-01T23:00:15.654Z] GET /
+[2026-07-01T23:00:15.765Z] GET /estilo.css
+[2026-07-01T23:00:16.092Z] GET /favicon.ico
+[2026-07-01T23:00:36.595Z] POST /login
+[2026-07-01T23:00:36.799Z] ERRO: Falha no login: Email e senha são obrigatórios
+[2026-07-01T23:00:45.595Z] POST /login
+[2026-07-01T23:00:45.636Z] ERRO: Falha no login: Email ou senha inválidos
+[2026-07-01T23:00:54.174Z] POST /login
+[2026-07-01T23:00:54.372Z] INFO: Login realizado: fabio@email.com
+[2026-07-01T23:01:21.902Z] POST /pg/produtos
+[2026-07-01T23:01:22.080Z] INFO: Produto PG criado: XBox
+[2026-07-01T23:01:59.472Z] GET /pg/produtos
+[2026-07-01T23:02:24.762Z] GET /pg/produtos
