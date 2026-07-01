@@ -1,11 +1,33 @@
 require("dotenv").config();
 
-const app = require("./src/app");
+const cluster = require("cluster");
+const os = require("os");
 
-const conectarBanco = require("./src/database/database");
+const numCPUs = os.cpus().length;
 
-conectarBanco();
+if (cluster.isMaster) {
+  console.log(`Master ${process.pid} rodando`);
+  console.log(`Criando ${numCPUs} workers...`);
 
-app.listen(process.env.PORT, () => {
-  console.log("Servidor rodando em ", process.env.PORT);
-});
+  for (let i = 0; i < numCPUs; i++) {
+    cluster.fork();
+  }
+
+  cluster.on("exit", (worker, code, signal) => {
+    console.log(`Worker ${worker.process.pid} caiu (código: ${code})`);
+    console.log("Reiniciando worker...");
+    cluster.fork();
+  });
+} else {
+  const app = require("./src/app");
+
+  const conectarBanco = require("./src/database/database");
+
+  conectarBanco();
+
+  app.listen(process.env.PORT || 3000, () => {
+    console.log(
+      `Worker ${process.pid} ouvindo na porta ${process.env.PORT || 3000}`,
+    );
+  });
+}
