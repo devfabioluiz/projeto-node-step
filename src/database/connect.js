@@ -20,4 +20,12 @@ async function conectar() {
   return cached.conn;
 }
 
-module.exports = conectar;
+async function desconectar() {
+  if (cached.conn) {
+    await cached.conn.disconnect();
+    cached.conn = null;
+    cached.promise = null;
+  }
+}
+
+module.exports = { conectar, desconectar };
