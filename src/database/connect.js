@@ -13,7 +13,10 @@ async function conectar() {
     const MONGODB_URL =
       process.env.MONGODB_URL || "mongodb://localhost:27017/projeto-final";
 
-    cached.promise = mongoose.connect(MONGODB_URL);
+    cached.promise = mongoose.connect(MONGODB_URL, {
+      serverSelectionTimeoutMS: 5000,
+      bufferCommands: false,
+    });
   }
 
   cached.conn = await cached.promise;
