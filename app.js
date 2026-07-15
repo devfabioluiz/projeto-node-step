@@ -3,6 +3,7 @@ const helmet = require("helmet");
 const cors = require("cors");
 const compression = require("compression");
 const rateLimit = require("express-rate-limit");
+const { conectar } = require("./src/database/connect");
 
 const produtoRoutes = require("./src/routes/produtoRoutes");
 const authRoutes = require("./src/routes/authRoutes");
@@ -23,6 +24,17 @@ const limitador = rateLimit({
 app.use("/api/", limitador);
 
 app.use(express.json());
+
+// ─── Conexão com MongoDB ───────────────────────────────
+app.use(async (req, res, next) => {
+  try {
+    await conectar();
+    next();
+  } catch (erro) {
+    console.error("Falha na conexão MongoDB:", erro.message);
+    res.status(500).json({ erro: "Erro ao conectar ao banco de dados" });
+  }
+});
 
 // ─── Rota Raiz ────────────────────────────────────────
 app.get("/", (req, res) => {
