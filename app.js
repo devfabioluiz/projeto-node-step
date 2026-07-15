@@ -32,7 +32,10 @@ app.use(async (req, res, next) => {
     next();
   } catch (erro) {
     console.error("Falha na conexão MongoDB:", erro.message);
-    res.status(500).json({ erro: "Erro ao conectar ao banco de dados" });
+    res.status(500).json({
+      erro: "Erro ao conectar ao banco de dados",
+      detalhe: erro.message,
+    });
   }
 });
 
